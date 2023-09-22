@@ -1,11 +1,3 @@
-<?php
-//include("connection.php");
-//$con = connection();
-
-//$sql = "SELECT * FROM Usuarios";
-//$query = mysqli_query($con, $sql);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 

@@ -43,8 +43,12 @@ if (isset($_POST["btn_acceso"])) {
         $user = $_POST["campo_usuario"];
         $password = $_POST["campo_contraseña"];
 
+        include "connection.php";
+        $funtionBD=connectToDatabase();
+        
+
         // Conecta a la base de datos (asegúrate de tener la conexión $connect definida previamente)
-        $conex = $connect->prepare("SELECT * FROM Usuarios WHERE Usuario = '$user' AND Contraseña = '$password' ");
+        $conex = $funtionBD->prepare("SELECT * FROM Usuarios WHERE Usuario = ? AND Contraseña = ? ");
         $conex->bind_param("ss", $user, $password);
         $conex->execute();
         $result = $conex->get_result();
@@ -52,10 +56,10 @@ if (isset($_POST["btn_acceso"])) {
         // Verifica si se encontraron resultados
         if ($result->num_rows > 0) {
             // Usuario y contraseña válidos, redirige a la página de inicio
-            header("location: index.php");
+            header("location: Listado.php");
         } else {
             // Acceso denegado
-            echo "ACCESO DENEGADO";
+            echo "ACCESO DENEGADO: XFAVOR REGISTRESE";
         }
     } else {
         // Faltan campos por rellenar
