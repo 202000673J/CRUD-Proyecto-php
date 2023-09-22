@@ -4,9 +4,9 @@ function connectToDatabase(){
     $host = "localhost";
     $user = "root";
     $pass = "123456";
-    $bd = "bd_login"; // Corregido el nombre de la base de datos
+    $bd = "bd_loguin"; // Corregido el nombre de la base de datos
 
-    $connect = new mysqli($host, $user, $pass,$bd);
+    $connect = mysqli_connect($host, $user, $pass,$bd);
 
     if (!$connect) {
         die("Error de conexión: " . mysqli_connect_error());

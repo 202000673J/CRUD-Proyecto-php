@@ -2,7 +2,7 @@
 //include("connection.php");
 //$con = connection();
 
-//$sql = "SELECT * FROM users";
+//$sql = "SELECT * FROM Usuarios";
 //$query = mysqli_query($con, $sql);
 ?>
 
@@ -21,11 +21,11 @@
     <div class="users-form">
         <h1>Crear usuario</h1>
         <form action="index.php" method="POST">
-            <input type="text" name="name" placeholder="Nombre">
-            <input type="text" name="lastname" placeholder="Apellidos">
-            <input type="text" name="username" placeholder="Username">
-            <input type="password" name="password" placeholder="Password">
-            
+            <input type="text" name="name_index" placeholder="Nombre">
+            <input type="text" name="last_name_index" placeholder="Apellidos">
+            <input type="text" name="username_index" placeholder="Username">
+            <input type="password" name="pasword_index" placeholder="Password">
+
             <input type="submit" value="REGISTRAR USER" name="btn_registrado">
         </form>
     </div>
@@ -33,13 +33,9 @@
 
 </html>
 <?php
-    
-    if (!isset($_POST["btn_registrado"])) {
-        if(!empty($_POST["name"]) && !empty($_POST["lastname"]) && !empty($_POST["Username"]) && !empty($_POST["Password"])){
-            header("location: loguin.php");
+if (isset($_POST["btn_registrado"])) {
+    include("insert_user.php");
 
-        }
-    }else{
-        echo "FALTAN CAMPOS POR RELLENAR";
-    }
+}
+
 ?>

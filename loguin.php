@@ -9,10 +9,7 @@
 
 <body>
     <header>
-        <center>
-            <h2>Inicio secion</h2>
-            
-        </center>
+        <center><h2>Inicio secion</h2></center>
     </header>
     <center>
         <form action="loguin.php" method="post">
@@ -26,7 +23,7 @@
                 contraseña
             </label>
             <br>
-            <input type="text" value="" name="campo_contraseña">
+            <input type="password" value="" name="campo_contraseña">
             <br>
             <input type="submit" value="loguin" name="btn_acceso">
 
@@ -67,7 +64,7 @@ if (isset($_POST["btn_acceso"])) {
 }
 ?>
 <?php
-    if (!empty($_POST["btm_registrarse"])) {
-        header("location: index.php");
-    }
+if (!empty($_POST["btm_registrarse"])) {
+    header("location: index.php");
+}
 ?>
